@@ -1,4 +1,53 @@
 package pages.forms;
 
-public class PracticeFormPage {
+import org.openqa.selenium.By;
+
+import static utility.JavaScriptUtils.*;
+
+public class PracticeFormPage extends FormsPage{
+    private By femaleRadioButton = By.id("gender-radio-2");
+    private By sportsHobbyCheckBox = By.id("hobbies-checkbox-1");
+    private By readingHobbyCheckBox = By.id("hobbies-checkbox-2");
+    private By musicHobbyCheckBox = By.id("hobbies-checkbox-3");
+
+    public void clickFemaleRadioButton() {
+        scrollToElementJS(femaleRadioButton);
+        clickJS(femaleRadioButton);
+    }
+
+    public boolean isFemaleRadioButtonSelected() {
+        return find(femaleRadioButton).isSelected();
+    }
+
+    public void clickSportsHobbyCheckbox() {
+        if (!find(sportsHobbyCheckBox).isSelected()) {
+            scrollToElementJS(sportsHobbyCheckBox);
+            clickJS(sportsHobbyCheckBox);
+        }
+    }
+
+    public void clickReadingHobbyCheckbox() {
+        if (!find(readingHobbyCheckBox).isSelected()) {
+            scrollToElementJS(readingHobbyCheckBox);
+            clickJS(readingHobbyCheckBox);
+        }
+    }
+
+    public void unclickReadingHobbyCheckbox() {
+        if (find(readingHobbyCheckBox).isSelected()) {
+            scrollToElementJS(readingHobbyCheckBox);
+            clickJS(readingHobbyCheckBox);
+        }
+    }
+
+    public void clickMusicHobbyCheckbox() {
+        if (!find(musicHobbyCheckBox).isSelected()) {
+            scrollToElementJS(musicHobbyCheckBox);
+            clickJS(musicHobbyCheckBox);
+        }
+    }
+
+    public boolean isReadingSelected() {
+        return find(readingHobbyCheckBox).isSelected();
+    }
 }

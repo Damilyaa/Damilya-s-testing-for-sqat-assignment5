@@ -1,4 +1,16 @@
-package com.demoqa.pages;
+package pages.forms;
 
-public class FormsPage {
+import org.openqa.selenium.By;
+import pages.HomePage;
+
+import static utility.JavaScriptUtils.scrollToElementJS;
+
+public class FormsPage extends HomePage {
+    private By practiceFormMenuItem = By.xpath("//li[@id='item-0']/span[text()='Practice Form']");
+
+    public PracticeFormPage clickPracticeForm() {
+        scrollToElementJS(practiceFormMenuItem);
+        click(practiceFormMenuItem);
+        return new PracticeFormPage();
+    }
 }
